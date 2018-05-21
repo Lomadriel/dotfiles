@@ -1,0 +1,159 @@
+# Vars
+
+set $mod Mod1
+
+set $WS1 1
+set $WS2 2
+set $WS3 3
+set $WS4 4
+set $WS5 5
+set $WS6 6
+set $WS7 7
+set $WS8 8
+set $WS9 9
+set $WS10 10
+
+set $program_launcher zsh -c "rofi -fullscreen -show run"
+set $terminal termite
+set $file_explorer "DESKTOP_SESSION=kde dolphin"
+
+# Apparence of new windows
+new_window pixel 1
+new_float 1pixel
+default_orientation auto
+
+# The Holy Grail
+no_focus [window_role="pop-up"]
+no_focus [window_type="notification"]
+
+# Floating window min size
+floating_minimum_size 150 x 150
+floating_maximum_size -1 x -1
+
+# Back and Forth
+workspace_auto_back_and_forth no
+
+# Color settings            border      backgr.     text        indicator
+client.focused              #d64937     #d64937     #1f1f1f     #971212
+client.unfocused            #545454     #2d2d2d     #D9D9D9
+client.focused_inactive     #545454     #2d2d2d     #D9D9D9
+client.urgent               #51c4d4     #ecedee     #51c4d4
+
+client.background           #121212
+
+# Font for window titles. Will also be used by the bar unless a different font
+# is used in the bar {} block below.
+font pango:Terminus 11px
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+focus_follows_mouse no
+focus_on_window_activation none
+
+#####################################
+
+# Fullscreen
+bindsym $mod+e fullscreen toggle
+
+# Change layout
+bindsym $mod+eacute layout tabbed
+bindsym $mod+p split
+
+# Toggle focus between floating and non floating
+bindsym $mod+shift+space focus mode_toggle
+
+# Create floating window from non floating one
+bindsym $mod+space floating toggle
+
+# Split
+bindsym $mod+dead_circumflex split h
+bindsym $mod+egrave split v
+
+# Focus parent
+bindsym $mod+a focus parent
+
+# Launch program
+bindsym $mod+i exec --no-startup-id $program_launcher
+bindsym $mod+Return exec --no-startup-id $terminal
+bindsym $mod+shift+Return exec --no-startup-id $file_explorer
+
+# Kill program
+bindsym $mod+shift+b kill
+
+# Reload/Restart i3
+bindsym $mod+shift+x reload
+bindsym $mod+shift+o restart
+
+# Scratchpad
+bindsym $mod+d scratchpad show
+bindsym $mod+shift+d move scratchpad
+
+# Change focus
+bindsym $mod+c focus left
+bindsym $mod+t focus down
+bindsym $mod+s focus up
+bindsym $mod+r focus right
+
+# Move container
+bindsym $mod+shift+c move left
+bindsym $mod+shift+t move down
+bindsym $mod+shift+s move up
+bindsym $mod+shift+r move right
+
+# Change workspace
+bindsym $mod+1 workspace $WS1
+bindsym $mod+2 workspace $WS2
+bindsym $mod+3 workspace $WS3
+bindsym $mod+4 workspace $WS4
+bindsym $mod+5 workspace $WS5
+bindsym $mod+6 workspace $WS6
+bindsym $mod+7 workspace $WS7
+bindsym $mod+8 workspace $WS8
+bindsym $mod+9 workspace $WS9
+bindsym $mod+0 workspace $WS10
+
+# Move container to workspace
+bindsym $mod+shift+1 move workspace $WS1
+bindsym $mod+shift+2 move workspace $WS2
+bindsym $mod+shift+3 move workspace $WS3
+bindsym $mod+shift+4 move workspace $WS4
+bindsym $mod+shift+5 move workspace $WS5
+bindsym $mod+shift+6 move workspace $WS6
+bindsym $mod+shift+7 move workspace $WS7
+bindsym $mod+shift+8 move workspace $WS8
+bindsym $mod+shift+9 move workspace $WS9
+bindsym $mod+shift+0 move workspace $WS10
+
+# Audio
+bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
+bindsym XF86AudioNext exec --no-startup-id playerctl next
+bindsym XF86AudioPrev exec --no-startup-id playerctl previous
+bindsym XF86AudioRaiseVolume exec --no-startup-id ~/.local/wm/i3/volume 5%+
+bindsym XF86AudioLowerVolume exec --no-startup-id ~/.local/wm/i3/volume 5%-
+bindsym XF86AudioMute exec --no-startup-id ~/.local/wm/i3/volume_toggle
+	
+
+# Misc
+bindsym XF86Eject exec --no-startup-id eject
+bindsym XF86KbdBrightnessUp exec --no-startup-id asus-kbd-backlight up
+bindsym XF86KbdBrightnessDown exec --no-startup-id asus-kbd-backlight down
+bindsym XF86MonBrightnessUp exec --no-startup-id light -A 5
+bindsym XF86MonBrightnessDown exec --no-startup-id light -U 5
+bindsym XF86Calculator exec --no-startup-id kcal
+
+# Modes
+bindsym $mod+n mode "nothing"
+
+mode "nothing" {
+	bindsym $mod+Escape mode "default"
+}
+
+# for_window
+for_window [title="tdrop"] floating enable, sticky enable, resize set 800 600
+for_window [title="^tdrop-ranger$"] move absolute position 0 20
+for_window [title="^tdrop-calcurse$"] move absolute position 55 20
+for_window [title="^tdrop-htop$"] move absolute position 110 20
+
+# Startup
+exec --no-startup-id ~/.local/wm/i3/startup

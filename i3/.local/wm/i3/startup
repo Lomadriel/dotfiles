@@ -1,0 +1,23 @@
+#!/bin/zsh
+
+killall polybar
+killall xfce4-notifyd
+
+CUSTOM_PATH=$PATH:~/.local/wm/bin:~/.local/wm/i3/:~/.local/wm/polybar_helpers
+
+# Notification
+/usr/lib/xfce4/notifyd/xfce4-notifyd &
+
+# Background
+feh --bg-scale $HOME/Pictures/lancer.jpg
+
+# Polybar
+$HOME/.local/wm/polybar_helpers/init-tab
+PATH=$CUSTOM_PATH polybar -r top &
+PATH=$CUSTOM_PATH polybar -r down &
+
+# Transparency
+compton &
+
+# Sound notification
+volnoti &
