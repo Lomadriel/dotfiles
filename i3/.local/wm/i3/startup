@@ -21,3 +21,9 @@ compton &
 
 # Sound notification
 volnoti &
+
+# Network manager
+nm-applet &
+
+# Redshift
+redshift-gtk &

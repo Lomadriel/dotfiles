@@ -13,6 +13,18 @@ set $WS8 8
 set $WS9 9
 set $WS10 10
 
+workspace $WS1 output eDP-1
+workspace $WS2 output eDP-1
+workspace $WS3 output eDP-1
+workspace $WS4 output eDP-1
+workspace $WS5 output eDP-1
+workspace $WS6 output eDP-1
+workspace $WS7 output eDP-1
+workspace $WS8 output eDP-1
+workspace $WS9 output HDMI-2
+workspace $WS10 output HDMI-2
+
+
 set $program_launcher zsh -c "rofi -fullscreen -show run"
 set $terminal termite
 set $file_explorer "DESKTOP_SESSION=kde dolphin"
