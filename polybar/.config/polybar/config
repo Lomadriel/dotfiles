@@ -86,8 +86,8 @@ tray-position = right
 tray-padding = 2
 tray-detached = false
 
-modules-left = date battery
-modules-center = updates
+modules-left = date battery updates
+modules-center = title
 
 line-size = 2
 line-color = #f00
@@ -262,7 +262,7 @@ label-volume-foreground = ${colors.foreground}
 
 format-muted-prefix = " "
 format-muted-foreground = ${colors.foreground}
-label-muted = sound muted
+label-muted = " sound muted "
 
 bar-volume-width = 10
 bar-volume-foreground-0 = ${xrdb:color2}
@@ -323,6 +323,11 @@ animation-packetloss-0-foreground = #ffa64c
 animation-packetloss-1 = 
 animation-packetloss-1-foreground = ${bar/top.foreground}
 animation-packetloss-framerate = 500
+
+[module/title]
+type = internal/xwindow
+label = %title%
+label-maxlen = 50
 
 [settings]
 screenchange-reload = true
