@@ -27,3 +27,10 @@ nm-applet &
 
 # Redshift
 redshift-gtk &
+
+# Authentification agent
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+
+dbus-update-activation-environment --systemd DISPLAY
+eval $(/usr/bin/gnome-keyring-daemon --start)
+export SSH_AUTH_SOCK
