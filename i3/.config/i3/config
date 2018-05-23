@@ -27,7 +27,7 @@ workspace $WS10 output HDMI-2
 
 set $program_launcher zsh -c "rofi -fullscreen -show run"
 set $terminal termite
-set $file_explorer "DESKTOP_SESSION=kde dolphin"
+set $file_explorer thunar
 
 # Apparence of new windows
 new_window pixel 1
