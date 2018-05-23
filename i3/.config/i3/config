@@ -154,6 +154,9 @@ bindsym XF86MonBrightnessUp exec --no-startup-id light -A 5
 bindsym XF86MonBrightnessDown exec --no-startup-id light -U 5
 bindsym XF86Calculator exec --no-startup-id kcal
 
+# Lock screen
+bindsym $mod+Control+l exec --no-startup-id ~/.local/wm/i3/shutdown_menu
+
 # Modes
 bindsym $mod+n mode "nothing"
 
