@@ -70,13 +70,13 @@ bindsym $mod+e fullscreen toggle
 
 # Change layout
 bindsym $mod+eacute layout tabbed
-bindsym $mod+p split
+bindsym $mod+p layout toggle
 
 # Toggle focus between floating and non floating
-bindsym $mod+shift+space focus mode_toggle
+bindsym $mod+space focus mode_toggle
 
 # Create floating window from non floating one
-bindsym $mod+space floating toggle
+bindsym $mod+shift+space floating toggle
 
 # Split
 bindsym $mod+dead_circumflex split h

@@ -1,4 +1,4 @@
-{;=====================================================
+;=====================================================
 ;
 ;   To learn more about how to configure Polybar
 ;   go to https://github.com/jaagr/polybar
@@ -43,17 +43,17 @@ module-margin-right = 0
 
 font-0 = Fira Mono:style=Regular:size=10;2
 font-1 = Source Han Sans JP Normal:size=10;3
-font-2 = MaterialIcons:size=15:antialias=false;5
-font-3 = "Font Awesome 5 Free:style=Regular:pixelsize=8;2"
-font-4 = "Font Awesome 5 Free:style=Solid:pixelsize=8;2"
-font-5 = "Font Awesome 5 Brands:pixelsize=8;2"
+font-2 = MaterialIcons:size=15:antialias=true;5
+font-3 = "Font Awesome 5 Free:style=Regular:pixelsize=11;2"
+font-4 = "Font Awesome 5 Free:style=Solid:pixelsize=11;2"
+font-5 = "Font Awesome 5 Brands:pixelsize=11;2"
 font-6 = Termsynu:size=8:antialias=false;1
 
 override-redirect = false
 
-modules-left = ranger calcurse htop 
+modules-left = ranger calcurse htop qalc music
 modules-center = i3 
-modules-right = music volume cpu memory
+modules-right = volume cpu memory
 
 ;tray-position = n
 ;tray-padding = 2
@@ -77,10 +77,11 @@ foreground = ${colors.foreground}
 
 font-0 = Fira Mono:style=Regular:size=10;2
 font-1 = Source Han Sans JP Normal:size=10;3
-font-2 = MaterialIcons:size=15:antialias=false;5
-font-3 = "Font Awesome 5 Free:style=Regular:pixelsize=8;2"
-font-4 = "Font Awesome 5 Free:style=Solid:pixelsize=8;2"
-font-5 = "Font Awesome 5 Brands:pixelsize=8;2"
+font-2 = MaterialIcons:size=15:antialias=true;5
+font-3 = "Font Awesome 5 Free:style=Regular:pixelsize=11;2"
+font-4 = "Font Awesome 5 Free:style=Solid:pixelsize=11;2"
+font-5 = "Font Awesome 5 Brands:pixelsize=11;2"
+font-6 = Termsynu:size=8:antialias=false;1
 
 tray-position = right
 tray-padding = 2
@@ -96,26 +97,34 @@ border-size = 0
 border-color = ${colors.background}
 
 wm-restack = i3
+override-redirect = false
 
 [module/calcurse]
 type = custom/ipc
-hook-0 = bartermapp calcurse 2 
-hook-1 = echo "%{F#FFFFFF} 2%{F-}  "
+hook-0 = bartermapp calcurse 2 
+hook-1 = echo "%{F#FFFFFF} 2%{F-}  "
 click-left = polybar-msg hook calcurse 1
 initial = 2
 
 [module/ranger]
 type = custom/ipc
-hook-0 = bartermapp ranger 1 
-hook-1 = echo "%{F#FFFFFF} 1%{F-}  "
+hook-0 = bartermapp ranger 1 
+hook-1 = echo "%{F#FFFFFF} 1%{F-}  "
 click-left = polybar-msg hook ranger 1
 initial = 2
 
 [module/htop]
 type = custom/ipc
-hook-0 = bartermapp htop 3 
-hook-1 = echo "%{F#FFFFFF} 3%{F-}  "
+hook-0 = bartermapp htop 3 
+hook-1 = echo "%{F#FFFFFF} 3%{F-}  "
 click-left = polybar-msg hook htop 1
+initial = 2
+
+[module/qalc]
+type = custom/ipc
+hook-0 = bartermapp qalc 4 
+hook-1 = echo "%{F#FFFFFF} 4%{F-}  "
+click-left = polybar-msg hook qalc 1
 initial = 2
 
 [module/wlan]
@@ -138,16 +147,16 @@ type = internal/i3
 pin-workspaces = true
 
 format = <label-state> <label-mode>
-ws-icon-0 = 1;一 
-ws-icon-1 = 2;二 
-ws-icon-2 = 3;三 
-ws-icon-3 = 4;四 
-ws-icon-4 = 5;五 
-ws-icon-5 = 6;六 
-ws-icon-6 = 7;七 
-ws-icon-7 = 8;八 
-ws-icon-8 = 9;七 
-ws-icon-9 = 10;⼗ 
+ws-icon-0 = 1;一
+ws-icon-1 = 2;二
+ws-icon-2 = 3;三
+ws-icon-3 = 4;四
+ws-icon-4 = 5;五
+ws-icon-5 = 6;六
+ws-icon-6 = 7;七
+ws-icon-7 = 8;八
+ws-icon-8 = 9;九
+ws-icon-9 = 10;⼗
 ws-icon-default = -
 strip-wsnumbers = true
 
@@ -225,7 +234,7 @@ ramp-coreload-7-foreground = #ff5555
 
 [module/memory]
 type = internal/memory
-interval = 2
+interval = 1
 
 format = <bar-used>
 format-prefix = "  "
@@ -254,7 +263,7 @@ time =%H:%M
 label = %date% %time%
 
 [module/volume]
-type = internal/volume
+type = internal/alsa
 
 format-volume = "<label-volume> <bar-volume> "
 label-volume = " "
@@ -262,7 +271,7 @@ label-volume-foreground = ${colors.foreground}
 
 format-muted-prefix = " "
 format-muted-foreground = ${colors.foreground}
-label-muted = " sound muted "
+label-muted = "sound muted "
 
 bar-volume-width = 10
 bar-volume-foreground-0 = ${xrdb:color2}
@@ -292,7 +301,7 @@ click-middle = playerctl play-pause
 [module/updates]
 type = custom/script
 exec = updates-arch
-initial = 60
+interval = 300
 
 [module/wired-network]
 type = internal/network

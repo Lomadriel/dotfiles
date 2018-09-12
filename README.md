@@ -18,3 +18,6 @@ thunar
 rofi
 polkit-gnome
 gnome-keyring
+
+## Termite dependencies
+ttf-hack
