@@ -153,6 +153,7 @@ bindsym XF86KbdBrightnessDown exec --no-startup-id asus-kbd-backlight down
 bindsym XF86MonBrightnessUp exec --no-startup-id light -A 5
 bindsym XF86MonBrightnessDown exec --no-startup-id light -U 5
 bindsym XF86Calculator exec --no-startup-id kcal
+bindsym --release Print exec --no-startup-id ~/.local/wm/i3/scrot_clipboard
 
 # Lock screen
 bindsym $mod+Control+l exec --no-startup-id ~/.local/wm/i3/shutdown_menu

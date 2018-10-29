@@ -9,7 +9,7 @@ CUSTOM_PATH=$PATH:~/.local/wm/bin:~/.local/wm/i3/:~/.local/wm/polybar_helpers
 /usr/lib/xfce4/notifyd/xfce4-notifyd &
 
 # Background
-feh --randommize --bg-fill $HOME/Pictures/wallpapers/
+feh -z --bg-fill $HOME/Pictures/wallpapers/
 
 # Polybar
 $HOME/.local/wm/polybar_helpers/init-tab
@@ -29,7 +29,7 @@ nm-applet &
 (/usr/lib/geoclue-2.0/demos/agent| redshift-gtk) &
 
 # Clipboard
-parcellite &
+xfce4-clipman &
 
 #Keyboard manager
 fcitx &
