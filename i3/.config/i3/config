@@ -30,8 +30,8 @@ set $terminal termite
 set $file_explorer thunar
 
 # Apparence of new windows
-new_window pixel 1
-new_float 1pixel
+default_border pixel 2
+default_floating_border pixel 2
 default_orientation auto
 
 # The Holy Grail
@@ -84,6 +84,7 @@ bindsym $mod+egrave split v
 
 # Focus parent
 bindsym $mod+a focus parent
+bindsym $mod+shift+a focus child
 
 # Launch program
 bindsym $mod+i exec --no-startup-id $program_launcher
