@@ -82,13 +82,15 @@ font-3 = "Font Awesome 5 Free:style=Regular:pixelsize=11;2"
 font-4 = "Font Awesome 5 Free:style=Solid:pixelsize=11;2"
 font-5 = "Font Awesome 5 Brands:pixelsize=11;2"
 font-6 = Termsynu:size=8:antialias=false;1
+font-7 = Weather Icons:size=12;1
 
 tray-position = right
 tray-padding = 2
 tray-detached = false
 
-modules-left = date battery updates
+modules-left = date battery weather updates
 modules-center = title
+modules-right = news
 
 line-size = 2
 line-color = #f00
@@ -337,6 +339,17 @@ animation-packetloss-framerate = 500
 type = internal/xwindow
 label = %title%
 label-maxlen = 50
+
+[module/weather]
+type = custom/script
+exec = ~/.local/wm/polybar_helpers/openweathermap-forecast.sh
+interval = 600
+label-font = 8
+
+[module/news]
+type = custom/script
+exec = ~/.local/wm/polybar_helpers/arch_news
+interval = 600
 
 [settings]
 screenchange-reload = true

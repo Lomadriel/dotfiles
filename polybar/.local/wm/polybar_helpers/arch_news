@@ -1,0 +1,22 @@
+#!/usr/bin/python3
+from feedparser import parse
+import os
+
+url = 'https://www.archlinux.org/feeds/news/'
+cache_path = os.path.expanduser("~/.cache/polybar_helpers/last_news_timestamp")
+
+if not os.path.exists(os.path.dirname(cache_path)):
+    try:
+        os.makedirs(os.path.dirname(cache_path))
+    except OSError as exc: # Guard against race condition
+        if exc.errno != errno.EEXIST:
+            raise
+
+with os.fdopen(os.open(cache_path, os.O_RDWR | os.O_CREAT), "r+") as cache:
+    last_news_timestamp = cache.read()
+    entry = parse(url).entries[0]
+
+    if last_news_timestamp != entry.updated:
+        print(entry.title)
+        cache.truncate(0)
+        cache.write(entry.updated)

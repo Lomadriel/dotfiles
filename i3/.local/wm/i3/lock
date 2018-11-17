@@ -13,5 +13,5 @@ param=(--insidecolor=faddc500 --ringcolor=fafafa00 \
 
 sleep 0.1s
 ffmpeg -f x11grab -video_size $RES -y -i $DISPLAY -i $LOCK -i $LOCK -filter_complex "boxblur=5:1,overlay=0:0,overlay=1920:0" -vframes 1 $TMPBG #-loglevel quiet
-i3lock "${param[@]}" -i $TMPBG
+i3lock -m "${param[@]}" -i $TMPBG
 rm $TMPBG
