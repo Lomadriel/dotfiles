@@ -9,6 +9,10 @@ ttf-fira-mono
 adobe-source-han-sans-jp-fonts
 ttf-font-awesome
 ttf-material-icons
+python3
+python-feedparser
+jq
+ttf-weather-icons
 
 ## I3 dependencies:
 
