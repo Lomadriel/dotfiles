@@ -67,5 +67,5 @@ if [ ! -z "$current" ] && [ ! -z "$forecast" ]; then
         trend=""
     fi
 
-    echo "$(get_icon "$current_icon") $current_temp$SYMBOL  $trend  $(get_icon "$forecast_icon") $forecast_temp$SYMBOL"
+    echo "$(get_icon "$current_icon") $current_temp$SYMBOL  $trend  $(get_icon "$forecast_icon") $forecast_temp$SYMBOL "
 fi
