@@ -82,7 +82,7 @@ font-3 = "Font Awesome 5 Free:style=Regular:pixelsize=11;2"
 font-4 = "Font Awesome 5 Free:style=Solid:pixelsize=11;2"
 font-5 = "Font Awesome 5 Brands:pixelsize=11;2"
 font-6 = Termsynu:size=8:antialias=false;1
-font-7 = Weather Icons:size=12;1
+font-7 = Weather Icons:size=11;2
 
 tray-position = right
 tray-padding = 2
